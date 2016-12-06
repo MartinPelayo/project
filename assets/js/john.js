@@ -18,7 +18,7 @@ accomodate the rounding downward to its nearest integer.
 
 Formula:
 Math.floor(Math.random() * ((y-x)+1) + x);
-*/ 
+*/
 
 // easy
 function easyNumbers() {
