@@ -13,31 +13,46 @@
   <meta name="keywords" content="keywords,here">
   <link rel="stylesheet" href="css/mathstyle.css" type="text/css">
   </head>
-  <div id="header">
   <body background="http://cdn.wallpapersafari.com/25/68/KiWaZL.jpg">
-    <a href="resources.html">Recources</a>
-    <a href="about.html">About us</a>
-   <main>
+    <div id="header">
+      <a href="resources.html">Recources</a>
+      <a href="about.html">About us</a>
      <h1>WELCOME TO THE KIDS MATH GAME. LOOK AT HOW PURTY IT IS!</h1>
    </div>
-<h2>discription/instructions concearning the game...bla bla bla.</h2>
+   <main>
+     <h2>discription/instructions concearning the game...bla bla bla.</h2>
 
-<form id="form">
-  <h2>Enter your username to start playing</h2>
-        <input type="text" name="username" placeholder="username">
-        <!-- <input type="number" name="minCust" placeholder="Min Customer">
-        <input type="number" name="maxCust" placeholder="Max Customer">
-        <input type="number" name="avgCookieSale" placeholder="Average Cookie Sale"> -->
-        <input type="submit" value="User Name">
-      </form>
+     <form id="form">
+       <h2>Enter your username to start playing</h2>
+       <fieldset>
+         <legend>Your Name</legend>
+         <input type="text" name="userName" id="userName" value="Pick a username">
+         <br>
+         <br>
+       </fieldset>
+       <fieldset>
+         <legend>Challenge</legend>
+         <input type="radio" name="difficulty" value="easy" checked> easy - single digits<br>
+         <input type="radio" name="difficulty" value="medium"> medium - two digit numbers<br>
+         <input type="radio" name="difficulty" value="hard">hard - triple digits <br>
 
-      <div id="thisone" onclick="waithide()"></div>
+       </fieldset>
+       <fieldset>
+         <legend>speed</legend>
+         <input type="radio" name="speedType" value="easy"> Easy - 20 seconds to answer each one. <br>
+         <input type="radio" name="speedType" value="medium">Medium - 10 seconds, no sweat. <br>
+         <input type="radio" name="speedType" value="hard"> Hard - 5. 5 what? 5 nothing! <br>
+       </fieldset>
+       <input type="submit" value="submit" name="submit" id="submit">
+     </form>
+
+     <div id="thisone" onclick="waithide()"></div>
 
 
-   </main>
+    </main>
 
-   <script type="text/javascript" src="assets/js/john.js"></script>
-   <script type="text/javascript" src="assets/js/martin.js"></script>
-   <script type="text/javascript" src="farr.js"></script>
+    <script type="text/javascript" src="assets/js/john.js"></script>
+    <script type="text/javascript" src="assets/js/martin.js"></script>
+    <script type="text/javascript" src="farr.js"></script>
   </body>
 </html>
