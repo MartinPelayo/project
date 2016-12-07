@@ -60,6 +60,10 @@ function clickHandler(){
      case 'hard':
       timeSpan = 5000;
       break;
+
+     default:
+      alert('function gameClock() broke.');
+      console.log('the gameClock and length failed to execute properly.');
     // end of switch statement. Remember, it measures in milliseconds
     }
 
@@ -143,10 +147,38 @@ function hardNumbers() {
 ****************************/
 // this will play one simple round, using only add functions.
 
+function playerMathDifficulty() {
+  var difficultyChoice = newPlayer.difficulty;
+  var msg = 'The playerMathDifficulty failed to execute properly.';
+  var digits;
+
+  switch (difficultyChoice) {
+    case 'hard':
+      digits = hardNumbers();
+      break;
+
+    case 'medium':
+      digits = mediumNumbers();
+      break;
+
+    case 'easy':
+      digits = easyNumbers();
+      break;
+
+    default:
+      digits = easyNumbers();
+      console.log(msg);
+//end of switch/case statement.
+  }
+
+  return digits;
+
+};
+
 
 function playAddRound() {
-  var a = easyNumbers();
-  var b = easyNumbers();
+  var a = playerMathDifficulty();
+  var b = playerMathDifficulty();
   var trueAnswer = a + b;
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
   var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
@@ -174,7 +206,7 @@ function playSubRound() {
   var b = easyNumbers();
   var trueAnswer = a - b;
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
-  var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
+  var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' - ' + b + ' equal when you subtract them?', '0');
   parseInt(userAnswer, 10);
   console.log(userAnswer);
 
