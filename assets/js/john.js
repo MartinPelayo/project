@@ -12,8 +12,6 @@ console.log('the john.js script has loaded.');
 *PLAY ROUND SETTING
 
 */
-
-
 var rightAnswers = 0;
 var wrongAnswers = 0;
 
@@ -45,8 +43,10 @@ function clickHandler(){
   /****************************
   *******TIMER SETTINGS********
   ****************************/
-
-  var intervalID = window.setInterval(playAddRound, gameClock());
+//MDN setTimeout doc: https://goo.gl/6cjaXz
+//MDN setInterval doc; I used setTimeout for a reason
+// as it will wait, then run: https://goo.gl/Ixj4Es
+  var intervalID = window.setTimeout(playAddRound, gameClock());
   function gameClock() {
     var gameLength = newPlayer.speed;
     var timeSpan = 0;
@@ -72,7 +72,10 @@ function clickHandler(){
   // end of function
   };
 
-
+  //play only 10 rounds of the game
+  for(var i = 0; i < 9; i++) {
+      mathRandomOperation();
+  };
 
 
 
@@ -145,11 +148,24 @@ function hardNumbers() {
 /****************************
 ***PLAY ROUND SETTINGS*******
 ****************************/
-// this will play one simple round, using only add functions.
+
+// this function should randomly decide between an addition operation or a subtraction.
+function mathRandomOperation(){
+   // Generate a random number between 1 - 4. We may reassign 3 and 4 later.
+  var randomChoice = (Math.random() * ((4 - 1) + 1) + 1);
+
+  if(randomChoice >= 3) {
+    playSubRound();}
+  else {
+    playAddRound();
+  }
+
+//end of mathRandomOperation function
+};
 
 function playerMathDifficulty() {
   var difficultyChoice = newPlayer.difficulty;
-  var msg = 'The playerMathDifficulty failed to execute properly.';
+  var msg = 'The playerMathDifficulty failed to execute properly and is using easyNumbers() as a result.';
   var digits;
 
   switch (difficultyChoice) {
@@ -175,7 +191,7 @@ function playerMathDifficulty() {
 
 };
 
-
+// this will play one simple round, using only addition.
 function playAddRound() {
   var a = playerMathDifficulty();
   var b = playerMathDifficulty();
@@ -224,12 +240,6 @@ function playSubRound() {
   }
 //end of playAddRound function
 };
-
-//this round is supposed to take in
-// function playKidsGame(){
-//
-// };
-
 
 
 //END OF PLAY ROUND FUNCTIONS
