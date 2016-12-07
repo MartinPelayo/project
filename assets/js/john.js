@@ -3,6 +3,17 @@ console.log('the john.js script has loaded.');
 /********************************
 ***UNIVERSAL VARIABLE DECLATION**
 ********************************/
+/* CONTENTS
+--string search for these sections to jump to relevant code portion
+
+*FORM INPUT AND LISTENER
+*TIMER SETTINGS
+*PLAYER/USER OBJECT
+*PLAY ROUND SETTING
+
+*/
+
+
 var rightAnswers = 0;
 var wrongAnswers = 0;
 
@@ -56,8 +67,6 @@ function clickHandler(){
 
   // end of function
   };
-
-  
 
 
 
@@ -139,6 +148,31 @@ function playAddRound() {
   var a = easyNumbers();
   var b = easyNumbers();
   var trueAnswer = a + b;
+  var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
+  var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
+  parseInt(userAnswer, 10);
+  console.log(userAnswer);
+
+  if(userAnswer != trueAnswer) {
+    alert('Sorry, that is the wrong answer! You guessed: ' + userAnswer + '; \nBut the correct answer is: ' + trueAnswer);
+    console.log('The user wrote: ' + userAnswer);
+    console.log('The correct answer was: ' + trueAnswer);
+    newPlayer.loses++;
+    return ++wrongAnswers;
+  } else {
+    alert('Good, you got it! ' + a + ' and ' + b + ' equal ' + userAnswer);
+    console.log('The user wrote: ' + userAnswer);
+    newPlayer.wins++;
+    return ++rightAnswers;
+  }
+//end of playAddRound function
+};
+
+//this function will generate a subtraction math operation.
+function playSubRound() {
+  var a = easyNumbers();
+  var b = easyNumbers();
+  var trueAnswer = a - b;
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
   var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
   parseInt(userAnswer, 10);
