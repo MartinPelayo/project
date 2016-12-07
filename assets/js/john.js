@@ -1,108 +1,81 @@
 'use strict';
+console.log('the john.js script has loaded.');
 /********************************
 ***UNIVERSAL VARIABLE DECLATION**
 ********************************/
+/* CONTENTS
+--string search for these sections to jump to relevant code portion
+
+*FORM INPUT AND LISTENER
+*TIMER SETTINGS
+*PLAYER/USER OBJECT
+*PLAY ROUND SETTING
+
+*/
+
+
 var rightAnswers = 0;
 var wrongAnswers = 0;
-String.prototype.wordSearch = function(arg) {
-  return this.toLowerCase().indexOf(arg);
-};
 
 //Player generator station.
-var name = document.getElementByID('form');
-name.addEventListener('click', clickHandler);
+var name = '';
+var difficulty = 'easy';
+var speed = 'easy';
+var newPlayer;
+
+/********************************
+****FORM INPUT AND LISTENER******
+********************************/
+
+var submitPlayerInfo = document.getElementById('form');
+submitPlayerInfo.addEventListener('submit', clickHandler);
 
 function clickHandler(){
   event.preventDefault();
+//use player choices to determine game based on form values.
+  name = event.target.userName.value;
+  difficulty = event.target.difficulty.value;
+  speed = event.target.speedType.value;
 
+  var playerInfo = new PlayerObj(name, difficulty, speed);
+  newPlayer = playerInfo;
+  console.log('the player has chosen: ', newPlayer.name, newPlayer.difficulty, newPlayer.speed);
+
+
+  /****************************
+  *******TIMER SETTINGS********
+  ****************************/
+
+  var intervalID = window.setInterval(playAddRound, gameClock());
+  function gameClock() {
+    var gameLength = newPlayer.speed;
+    var timeSpan = 0;
+    switch (gameLength) {
+     case 'easy':
+      timeSpan = 20000;
+      break;
+     case 'medium':
+      timeSpan = 10000;
+      break;
+     case 'hard':
+      timeSpan = 5000;
+      break;
+    // end of switch statement. Remember, it measures in milliseconds
+    }
+
+    return timeSpan;
+
+  // end of function
+  };
+
+
+
+
+
+
+// END OF clickHandler FUNCTION.
 }
 
-
-var difficulty = function() {
-  do {
-    difficulty = prompt('What difficulty setting do you want? Please type in \n0 for Easy, \n1 for medium and \n2 for hard.');
-    switch(difficulty) {
-      //issue:
-    case '0':
-    case 'easy':
-      alert('You have chosen: easy');
-      difficulty = 'easy';
-      console.log('Player ' + name + ' has chosen easy mode');
-      break;
-
-    case '1':
-    case 'medium':
-      alert('You have chosen: Medium');
-      difficulty = 'medium';
-      console.log('Player ' + name + ' has chosen medium difficulty');
-      break;
-
-    case '2':
-    case 'hard':
-      alert('You have chosen: Hard');
-      difficulty = 'hard';
-      console.log('Player ' + name + ' has chosen hard. difficulty');
-      break;
-
-    default:
-      alert('You have to make a valid choice. I will repeat the options again. ');
-      console.log('Player ' + name + 'has made an invalid choice.');
-      difficulty = 'runAgain';
-    }
-
-  } while (difficulty == 'runAgain');
-  //end of difficulty variable function
-  return difficulty;
-
-};
-//and this here invokes our variable. comment the below line out and it will never run.
-// difficulty();
-
-var speed = function() {
- var msg = 'What speed setting do you want? Please type in \n0 for Easy (20 sec), \n1 for medium (10 seconds) and \n2 for hard (5 seconds).'
-  do {
-    difficulty = prompt(msg);
-    switch(difficulty) {
-      //issue:
-    case '0':
-    case 'easy':
-      alert('You have chosen speed: Easy (20 sec).');
-      difficulty = 'easy';
-      console.log('Player ' + name + ' has chosen Easy (20 sec)');
-      break;
-
-    case '1':
-    case 'medium':
-      alert('You have chosen speed: Medium (10 seconds)');
-      difficulty = 'medium';
-      console.log('Player ' + name + ' has chosen medium (10 seconds)');
-      break;
-
-    case '2':
-    case 'hard':
-      alert('You have chosen: Hard (5 seconds)');
-      difficulty = 'hard';
-      console.log('Player ' + name + ' has chosen hard (5 seconds).');
-      break;
-
-    default:
-      alert('You have to make a valid choice. I will repeat the options again. ');
-      console.log('Player ' + name + ' has made an invalid choice.');
-      difficulty = 'runAgain';
-    }
-
-  } while (difficulty == 'runAgain');
-
-  return difficulty;
-
-};
-//and we invoke the variable here.
-// speed();
-
-//and now the creation of the newPlayer.
-
-var newPlayer = new PlayerObj(name, difficulty(), speed());
-console.log('the player chose: ', newPlayer.name, newPlayer.difficulty, newPlayer.speed);
 
 /***************************
 *****PLAYER/USER OBJECT*****
@@ -117,13 +90,16 @@ function PlayerObj(name, difficulty, speed) {
   this.name = name;
   this.difficulty = difficulty;
   this.speed = speed;
-  var score_current = 0;
-  var score_high = 0;
-  var wins = 0;
-  var loses = 0;
-  var winLossRatio = wins / (wins + loses);
+  this.currentScore = 0;
+  this.highScore = 0;
+  this.wins = 0;
+  this.loses = 0;
+  this.winLossRatio = this.wins / (this.wins + this.loses);
 
 };
+
+
+
 
 /*
 *****************************
@@ -167,6 +143,7 @@ function hardNumbers() {
 ****************************/
 // this will play one simple round, using only add functions.
 
+
 function playAddRound() {
   var a = easyNumbers();
   var b = easyNumbers();
@@ -180,20 +157,41 @@ function playAddRound() {
     alert('Sorry, that is the wrong answer! You guessed: ' + userAnswer + '; \nBut the correct answer is: ' + trueAnswer);
     console.log('The user wrote: ' + userAnswer);
     console.log('The correct answer was: ' + trueAnswer);
+    newPlayer.loses++;
     return ++wrongAnswers;
   } else {
     alert('Good, you got it! ' + a + ' and ' + b + ' equal ' + userAnswer);
     console.log('The user wrote: ' + userAnswer);
+    newPlayer.wins++;
     return ++rightAnswers;
   }
 //end of playAddRound function
 };
 
-// playAddRound();
-// playAddRound();
-// playAddRound();
+//this function will generate a subtraction math operation.
+function playSubRound() {
+  var a = easyNumbers();
+  var b = easyNumbers();
+  var trueAnswer = a - b;
+  var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
+  var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
+  parseInt(userAnswer, 10);
+  console.log(userAnswer);
 
-
+  if(userAnswer != trueAnswer) {
+    alert('Sorry, that is the wrong answer! You guessed: ' + userAnswer + '; \nBut the correct answer is: ' + trueAnswer);
+    console.log('The user wrote: ' + userAnswer);
+    console.log('The correct answer was: ' + trueAnswer);
+    newPlayer.loses++;
+    return ++wrongAnswers;
+  } else {
+    alert('Good, you got it! ' + a + ' and ' + b + ' equal ' + userAnswer);
+    console.log('The user wrote: ' + userAnswer);
+    newPlayer.wins++;
+    return ++rightAnswers;
+  }
+//end of playAddRound function
+};
 
 //this round is supposed to take in
 // function playKidsGame(){
@@ -203,7 +201,3 @@ function playAddRound() {
 
 
 //END OF PLAY ROUND FUNCTIONS
-
-/****************************
-*******TIMER SETTINGS********
-****************************/
