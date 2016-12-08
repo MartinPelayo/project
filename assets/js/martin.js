@@ -1,11 +1,15 @@
 'use strict';
-function waithide()
+var elForm = document.getElementById('form');
+
+elForm.addEventListener('submit', waithide)
+
+function waithide(event)
 {
-  var obj = document.getElementById('thisone');
-  obj.style.opacity = '0';
+  event.preventDefault();
+  elForm.style.opacity = '0';
   window.setTimeout(
     function removethis()
     {
-      obj.style.display = 'none';
+      elForm.style.display='none';
     }, 300);
 }
