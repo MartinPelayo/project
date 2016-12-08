@@ -14,10 +14,10 @@ body {
   font-family: 'Short Stack', cursive;
 }
 #header {
-  border:5px solid #B9770E;
+  border:5px solid #f2c32b;
   height:100px;
   width: 100%;
-  background-color: #29ABA4;
+  background-color: #65d0e6 ;
 
 }
 
@@ -51,8 +51,8 @@ body {
 {
   height:362px;
   width:550px;
-  background:#29ABA4;
-  border:5px solid #B9770E;
+  background:#f2c32b;
+  border:5px solid #76b52b;
   display:block;
   opacity:1;
   transition : all .5s;
