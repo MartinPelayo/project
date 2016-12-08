@@ -12,8 +12,13 @@ console.log('the john.js script has loaded.');
 *PLAY ROUND SETTING
 
 */
+var totalQuestions = 0;
 var rightAnswers = 0;
 var wrongAnswers = 0;
+var globalMathAnswer = 0;
+var globalUserGuess = 0;
+var globalFirstNumber = 0;
+var globalSecondNumber = 0;
 
 //Player generator station.
 var name = '';
@@ -74,7 +79,8 @@ function clickHandler(){
 
   //play only 10 rounds of the game
   for(var i = 0; i < 9; i++) {
-      mathRandomOperation();
+    mathRandomOperation();
+    ++totalQuestions;
   };
 
 
@@ -194,10 +200,15 @@ function playerMathDifficulty() {
 // this will play one simple round, using only addition.
 function playAddRound() {
   var a = playerMathDifficulty();
+  globalFirstNumber = a;
   var b = playerMathDifficulty();
+  globalSecondNumber = b;
   var trueAnswer = a + b;
+  globalMathAnswer = trueAnswer;
+  
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
   var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
+  globalUserGuess = userAnswer;
   parseInt(userAnswer, 10);
   console.log(userAnswer);
 
@@ -218,11 +229,15 @@ function playAddRound() {
 
 //this function will generate a subtraction math operation.
 function playSubRound() {
-  var a = easyNumbers();
-  var b = easyNumbers();
+  var a = playerMathDifficulty();
+  globalFirstNumber = a;
+  var b = playerMathDifficulty();
+  globalSecondNumber = b;
   var trueAnswer = a - b;
+  globalMathAnswer = trueAnswer;
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
   var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' - ' + b + ' equal when you subtract them?', '0');
+  globalUserGuess = userAnswer;
   parseInt(userAnswer, 10);
   console.log(userAnswer);
 
@@ -242,4 +257,5 @@ function playSubRound() {
 };
 
 
-//END OF PLAY ROUND FUNCTIONS
+// END OF PLAY ROUND FUNCTIONS
+// END PROGRAM.
