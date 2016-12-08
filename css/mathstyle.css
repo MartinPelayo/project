@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Short Stack', 'Comic Sans', cursive;
+  src: url(="<link href="https://fonts.googleapis.com/css?family=Short+Stack" rel="stylesheet">");
+}
+
 /** {
   box-sizing: border-box;
 }

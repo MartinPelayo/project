@@ -32,3 +32,7 @@ stretch goals
 - multiply gets twice the time to answer
 - form validation on name
 - countdown timer for time to answer questions
+
+Credits:
+Original number images from http://www.clipartkid.com/
+All are royalty free & able to be used freely, either in general or specifically for educational purposes
