@@ -47,17 +47,24 @@ body {
   margin: 0 auto;
 }
 
-
-
-
-div
+#form
 {
-  height:100px;
-  width :100px;
-  background:red;
+  height:362px;
+  width:550px;
+  background:#29ABA4;
+  border:5px solid #B9770E;
   display:block;
   opacity:1;
-  transition : all .3s;
-  -wekit-transition : all .3s;
-  -moz-transition : all .3s;
+  transition : all .5s;
+  -wekit-transition : all .5s;
+  -moz-transition : all .5s;
+}
+
+#complaint {
+  position: absolute;
+  border: 0px;
+  width: 700px;
+  top: 30%;
+  left: 25%;
+  text-align: center;
 }
