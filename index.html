@@ -1,68 +1,79 @@
 <!DOCTYPE html>
-<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
-<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
-<!--[if IE 8]><html class="preIE9"><![endif]-->
-<!--[if gte IE 9]><!--><html><!--<![endif]-->
-  <head>
-<link href="https://fonts.googleapis.com/css?family=Short+Stack" rel="stylesheet">
-<meta charset="UTF-8">
-    <title>title</title>
-  <meta name="author" content="Martin Pelayo, John Grillo, Richard Farr">
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Short+Stack" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>KidsMath</title>
+  <meta name="author" content="Martin Pelayo, John Grillo, Sharon Smith, Richard Farr">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
   <link rel="stylesheet" href="css/mathstyle.css" type="text/css">
-  </head>
-  <body background="http://cdn.wallpapersafari.com/25/68/KiWaZL.jpg">
-    <div id="header">
-      <a href="index.html">home</a>
-      <a href="resources.html">Recources</a>
-      <a href="about.html">About us</a>
-      <a href="other_input.html">Make your complaints here.</a>
-     <h1>WELCOME TO THE KIDS MATH GAME. LOOK AT HOW PURTY IT IS!</h1>
-   </div>
-   <main>
-     <h2>discription/instructions concearning the game...bla bla bla.</h2>
+</head>
 
-     <form id="form">
-       <h2>Enter your username to start playing</h2>
-       <fieldset>
-         <legend>Your Name</legend>
-         <input type="text" name="userName" id="userName" maxlength="30" value="Pick a username">
-         <br>
-         <br>
-       </fieldset>
-       <fieldset>
-         <legend>Challenge</legend>
-         <input type="radio" name="difficulty" value="easy" checked> easy - single digits<br>
-         <input type="radio" name="difficulty" value="medium"> medium - two digit numbers<br>
-         <input type="radio" name="difficulty" value="hard">hard - triple digits <br>
+<body background="assets/imgs/background.jpg">
+  <div class="header">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home |  </a></li>
+        <li><a href="resources.html">Resources | </a></li>
+        <li><a href="about.html">About Us | </a></li>
+        <li><a href="other_input.html">Get Your Score</a></li>
+      </ul>
+    </nav>
+    <h1>Welcome to KidsMath! -- The FUN Way to Learn Math </h1>
+  </div>
 
-       </fieldset>
-       <fieldset>
-         <legend>speed</legend>
-         <input type="radio" name="speedType" value="easy" checked> Easy - 20 seconds to answer each one. <br>
-         <input type="radio" name="speedType" value="medium">Medium - 10 seconds, no sweat. <br>
-         <input type="radio" name="speedType" value="hard"> Hard - 5. 5 what? 5 nothing! <br>
-       </fieldset>
-       <input type="submit" value="submit" name="submit" id="submit">
-     </form>
+ <main>
+   <div class="intro">
+     <h2>How to Play</h2>
+     <p>KidsMath is simple to play and a fun way to learn basic math skills. All you have to do is enter a username in the box below, then choose a level of difficulty and how much time you have to answer each question. Hit the "Submit" button and the page will bring up a series of 10 equations for you to solve.That's it!</p>
+  </div>
+
+   <form id="form">
+     <h2>Enter your username to start playing</h2>
+     <fieldset class="name">
+       <legend>Your Name</legend>
+       <input class= "text-box" type="text" name="userName"
+        id="userName" maxlength="30" value="Pick a username">
+     </fieldset>
+
+     <fieldset class="difficulty">
+       <legend>Challenge</legend>
+       <input type="radio" name="difficulty" value="easy" checked> Easy - single digits<br>
+       <input type="radio" name="difficulty" value="medium"> Medium - two digit numbers<br>
+       <input type="radio" name="difficulty" value="hard"> Hard - triple digits <br>
+     </fieldset>
+
+     <fieldset class="speed">
+       <legend>Speed</legend>
+       <input type="radio" name="speedType" value="easy" checked> Easy - 20 seconds to answer each one. <br>
+       <input type="radio" name="speedType" value="medium"> Medium - 10 seconds, no sweat. <br>
+       <input type="radio" name="speedType" value="hard"> Hard - 5. 5 what? 5 nothing! <br>
+     </fieldset>
+
+     <input type="submit" value="submit" name="Submit" id="submit">
+
+   </form>
 
 <!-- Starting the form for John's game functions.
-     This should apear after the above submit button is clicked perhaps.
+   This should apear after the above submit button is clicked perhaps.
 
-    <div id="game_div"
-      <form id="game">
-        <h2>Your playing the best math game ever</h2>
-        Type your answer here:<br>
-          <input type="text" name="comment" value="" size="50">
-          <input type="submit" value="Submit Answer">
-      </form>
-    </div>
+  <div id="game_div"
+    <form id="game">
+      <h2>Your playing the best math game ever</h2>
+      Type your answer here:<br>
+        <input type="text" name="comment" value="" size="50">
+        <input type="submit" value="Submit Answer">
+    </form>
+  </div>
 -->
 
-    </main>
-    <script type="text/javascript" src="assets/js/john.js"></script>
-    <script type="text/javascript" src="assets/js/martin.js"></script>
-    <script type="text/javascript" src="assets/js/farr.js"></script>
-  </body>
+  </main>
+
+  <script type="text/javascript" src="assets/js/john.js"></script>
+  <script type="text/javascript" src="assets/js/martin.js"></script>
+  <script type="text/javascript" src="assets/js/farr.js"></script>
+</body>
+
 </html>
