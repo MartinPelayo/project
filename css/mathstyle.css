@@ -7,110 +7,191 @@
 * {}
 
 body {
+  background-color: #24541a;
+  background-image: src: url("assets/imgs/background.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+
 }
 
+/*basic text styles*/
 h1, h2, h3, h4, h5, h6, legend {
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
 }
 
 h1 {
-  font-size: 42pt;
+  font-size: 76pt;
   padding-left: 5%;
-  margin-top: 15px;
-  margin-bottom: 20px;
-
+  margin-top: -25px;
+  margin-bottom: 10px;
 }
 
 h2 {
+  font-size: 36pt;
+  padding-left: 15%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+h3 {
   font-size: 30pt;
   padding-left: 5%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+h4 {
+  font-size: 24pt;
+  padding-left: 5%;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 p {
   font-family: 'Short Stack', 'Comic Sans', cursive;
-  font-size: 14px;
+  font-size: 16px;
 }
 
+/* navigation style*/
 nav {
-  padding-left: 60%;
-  text-align: left;
-  margin-bottom: 0;
+  padding-right: 50px;
+  text-align: right;
+  padding-bottom: 0;
+  margin-bottom: -10px;
 }
+
 nav li {
   list-style: none;
   display: inline-block;
   font-family: 'Short Stack', 'Comic Sans', cursive;
-  font-size: 14pt;
+  font-size: 12pt;
 }
 
-.header {
-  border:3px solid #f2c32b;
-  width: 99.5%;
-  background-color: #76b52b;
-  background-color: rgba(118, 181, 43, 0.5);
+/*link styles*/
+a:link {
+  color: #76b52b;
+}
+a:hover {
+  color: #f2c32b;
+}
+a:active {
+  color: #65d0e6;
+}
+a:visited {
+  color: #407f26;
+}
 
+/* class specifics */
+.header {
+  width: 100%;
 }
 
 .intro {
-  padding-left: 10%;
-  padding-right: 15%;
-  margin-top: 20px;
+  width: 800px;
+  margin: 20px auto 35px auto;
+  border:3px solid #f2c32b;
+  background-color: #65d0e6;
+  background-color: rgba(101, 208, 230, 0.7);
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 15px;
 }
 
 
-/* form to start game */
-
-.form {
-  font-family: 'Short Stack', 'Comic Sans', cursive;
+/* forms styling*/
+#form {
   text-align: left;
   margin: 30px auto;
-  width:750px;
+  width:700px;
   background-color: #f2c32b;
   background-color: rgba(242, 195, 43, 0.8);
-  border:5px solid #407f26;
+  border:5px solid #76b52b;
   display:block;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition : all .5s;
+  -wekit-transition : all .5s;
+  -moz-transition : all .5s;
+}
+
+#form-score {
+  text-align: left;
+  margin: 30px auto;
+  width:700px;
+  background-color: #f2c32b;
+  background-color: rgba(242, 195, 43, 0.8);
+  border:5px solid #76b52b;
+  display:block;
+  padding-left: 15px;
+  padding-right: 15px;
   transition : all .5s;
   -wekit-transition : all .5s;
   -moz-transition : all .5s;
 }
 
 fieldset {
-  margin-top: 30px;
+  font-family: 'Short Stack', 'Comic Sans', cursive;
+  font-size: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
-
 
 legend {
+  font-size: 30px;
+}
+
+input .radio {
+  padding-left: 50px;
+}
+
+.button {
   font-family: 'Amatic SC', cursive;
-  font-size: 20pt;
-  font-weight: bold;
+  font-size: 26px;
+  background-color: #65d0e6;
+  padding: 5px 25px 5px 25px;
+  border: 1px solid #407f26;
+  margin: 20px 0 20px 30px;
 }
 
-
-/* score page */
-#complaint {
-  /*position: absolute;*/
-  border: 0px;
-  width: 700px;
-  top: 30%;
-  left: 25%;
+.text-box {
+  font-family: 'Short Stack', 'Comic Sans', cursive;
+  font-size: 12pt;
+  width: 250px;
+  background-color: rgb(101, 208, 230);
+  padding-left: 10px;
 }
 
-/*About page styling*/
-#who_are_we {
-  /*position: absolute;*/
-  right: 0px;
+/* about page styling*/
+
+.text-block {
+  width: 900px;
+  margin: 20px auto 35px auto;
+  border:3px solid #f2c32b;
+  background-color: #65d0e6;
+  background-color: rgba(101, 208, 230, 0.9);
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 15px;
 }
 
+.text-block img {
+  float: left;
+  width: 200px;
+  padding: 30px 25px 25px 0;
+}
+
+#sharon-list ul {
+  list-style: none;
+  font-family: 'Short Stack', 'Comic Sans', cursive;
+  font-size: 12pt;
+}
+
+/*
 #john {
   float: left;
   clear: both;
-  border: 0px;
+ border: 0px;
   width: 500px;
 }
 
@@ -118,4 +199,4 @@ legend {
   float: left;
   border: 0;
   width: 500px;
-}
+}*/
