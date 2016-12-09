@@ -162,14 +162,7 @@ function clickHandler(){
     localStorage.setItem('localData', JSON.stringify(newPlayer) );
   }
   saveData();
-
-
-
 };
-
-
-
-
 
 // END OF clickHandler FUNCTION.
 
