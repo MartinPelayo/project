@@ -23,6 +23,7 @@ body {
   height:100px;
   width: 100%;
   background-color: #65d0e6 ;
+  text-align: center;
 
 }
 
@@ -33,15 +34,27 @@ body {
 
 #john {
   float: left;
-  clear: both;
+  /*clear: both;*/
   border: 0px;
-  width: 500px;
+  width: 1200px;
+}
+
+#johnpic {
+  clear: right;
+  float: right;
+  margin-top: 70px;
 }
 
 #martin {
   float: left;
   border: 0;
-  width: 500px;
+  width: 1200px;
+}
+
+#martinpic {
+  clear:right;
+  float: right;
+  margin-top: 20px;
 }
 
 #form {
@@ -71,5 +84,9 @@ body {
   width: 700px;
   top: 30%;
   left: 25%;
+  text-align: center;
+}
+
+#gamediscription {
   text-align: center;
 }
