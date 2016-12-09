@@ -1,7 +1,7 @@
 'use strict';
 var elForm = document.getElementById('form');
 
-elForm.addEventListener('submit', waithide)
+elForm.addEventListener('submit', waithide);
 
 function waithide(event)
 {
@@ -10,6 +10,6 @@ function waithide(event)
   window.setTimeout(
     function removethis()
     {
-      elForm.style.display='none';
+      elForm.style.display = 'none';
     }, 300);
 }
