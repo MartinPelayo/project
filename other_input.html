@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<<html>
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Short+Stack" rel="stylesheet">
   <meta charset="UTF-8">
   <title>KidsMath</title>
   <meta name="author" content="Martin Pelayo, John Grillo, Sharon Smith, Richard Farr">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Short+Stack" rel="stylesheet">
   <link rel="stylesheet" href="css/mathstyle.css" type="text/css">
 </head>
 
@@ -21,23 +21,31 @@
         <li><a href="other_input.html">Get Your Score</a></li>
       </ul>
     </nav>
-    <h1>Welcome to KidsMath! -- The FUN Way to Learn Math </h1>
+    <h1>KidsMath</h1>
+    <h2>The FUN Way to Learn Math!</h2>
   </div>
 
-<div id="score">
- <h2>Would you like a copy of your scores? Submit the form below</h2>
+  <div id="complaint">
+   <form id="form-score">
+     <h3>Would you like a copy of your scores?</h3>
+     <fieldset class="name">
+       <legend>Your Name</legend>
+        <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+        <input class="text-box" type="text" name="name" value="Batman">
+      </fieldset>
+      <fieldset class="email">
+        <legend>Your E-mail</legend>
+        <input class="text-box" type="text" name="mail" value="MOOOO@COW.COM">
+      </fieldset>
+      <fieldset class="comment">
+        <legend>Your Comments</legend>
+        <input class="text-box" type="text" name="comment" value="I'M BATMAN!">
+      </fieldset>
+       <input class="button" type="submit" value="Send">
+       <input class="button" type="reset" value="Reset">
+   </form>
+  </div>
 
- <form class="form" action="mailto:someone@example.com" method="post" enctype="text/plain">
- Name:<br>
- <input class="text-box" type="text" name="name" value="Batman"><br>
- E-mail:<br>
- <input class="text-box" type="text" name="mail" value="MOOOO@COW.COM"><br>
- Comment:<br>
- <input class="text-box" type="text" name="comment" value="IM BATMAN!" size="50"><br><br>
- <input class="button"type="submit" value="Send">
- <input type="button" value="Reset">
- </form>
-</div>
+</body>
 
-  </body>
 </html>
