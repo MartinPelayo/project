@@ -1,8 +1,7 @@
 'use strict';
 
-var numberImages = ['num-0.jpg', 'num-1.jpg', 'num-2.jpg', 'num-3.jpg',
-  'num-4.jpg', 'num-5.jpg', 'num-6.jpg', 'num-7.jpg',
-  'num-8.jpg', 'num-9.jpg'];
+var numberImages = ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg',
+  '6.jpg', '7.jpg', '8.jpg', '9.jpg'];
 var imageJSON = localStorage.getItem('images');
 var images = JSON.parse(imageJSON);
 var currentImageIndices = [0, 0];
@@ -49,7 +48,6 @@ imageList.textContent = '';
 
 drawImage(arrayOfRandomNumbers[0]);
 drawImage(arrayOfRandomNumbers[1]);
-
 
 function voteCounter() {
   var votes = [];

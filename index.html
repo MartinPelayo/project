@@ -2,12 +2,12 @@
 <html>
 
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Short+Stack" rel="stylesheet">
   <meta charset="UTF-8">
   <title>KidsMath</title>
   <meta name="author" content="Martin Pelayo, John Grillo, Sharon Smith, Richard Farr">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Short+Stack" rel="stylesheet">
   <link rel="stylesheet" href="css/mathstyle.css" type="text/css">
 </head>
 
@@ -24,25 +24,25 @@
     <h1>Welcome to KidsMath! -- The FUN Way to Learn Math </h1>
   </div>
 
- <main>
+  <main>
    <div class="intro">
      <h2>How to Play</h2>
      <p>KidsMath is simple to play and a fun way to learn basic math skills. All you have to do is enter a username in the box below, then choose a level of difficulty and how much time you have to answer each question. Hit the "Submit" button and the page will bring up a series of 10 equations for you to solve.That's it!</p>
-  </div>
+   </div>
 
-   <form id="form">
+   <form class="form">
      <h2>Enter your username to start playing</h2>
      <fieldset class="name">
        <legend>Your Name</legend>
        <input class= "text-box" type="text" name="userName"
-        id="userName" maxlength="30" value="Pick a username">
+        id="userName" maxlength="75px" value="Pick a username">
      </fieldset>
 
      <fieldset class="difficulty">
        <legend>Challenge</legend>
-       <input type="radio" name="difficulty" value="easy" checked> Easy - single digits<br>
-       <input type="radio" name="difficulty" value="medium"> Medium - two digit numbers<br>
-       <input type="radio" name="difficulty" value="hard"> Hard - triple digits <br>
+       <input class="input" type="radio" name="difficulty" value="easy" checked> Easy - single digits<br>
+       <input class="input" type="radio" name="difficulty" value="medium"> Medium - two digit numbers<br>
+       <input class="input" type="radio" name="difficulty" value="hard"> Hard - triple digits <br>
      </fieldset>
 
      <fieldset class="speed">
@@ -52,7 +52,7 @@
        <input type="radio" name="speedType" value="hard"> Hard - 5. 5 what? 5 nothing! <br>
      </fieldset>
 
-     <input type="submit" value="submit" name="Submit" id="submit">
+     <input type="submit" value="Submit" name="Submit" id="submit">
 
    </form>
 
