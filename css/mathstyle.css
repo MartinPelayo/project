@@ -200,3 +200,8 @@ input .radio {
   border: 0;
   width: 500px;
 }*/
+
+#results {
+  margin: 0 auto;
+  padding: 30px 650px 300px 650px;
+}

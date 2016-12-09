@@ -5,12 +5,10 @@ console.log('the john.js script has loaded.');
 ********************************/
 /* CONTENTS
 --string search for these sections to jump to relevant code portion
-
 *FORM INPUT AND LISTENER
 *TIMER SETTINGS
 *PLAYER/USER OBJECT
 *PLAY ROUND SETTING
-
 */
 var totalQuestions = 0;
 var rightAnswers = 0;
@@ -29,6 +27,23 @@ var newPlayer;
 /********************************
 ****FORM INPUT AND LISTENER******
 ********************************/
+
+
+// If there is stuff in local storage then this function will
+// put name of the user back into the form where they put their
+// username. This will persist over page refreshes. This meets the
+// requirement of using a persist something or other(I forget the technical term).
+function init(){
+  var grabData = localStorage.getItem('localData');
+  newPlayer = JSON.parse(grabData);
+
+  if (grabData){
+    document.getElementById('userName').value = newPlayer.name;
+  }
+}
+init();
+
+
 
 var submitPlayerInfo = document.getElementById('form');
 submitPlayerInfo.addEventListener('submit', clickHandler);
@@ -83,11 +98,73 @@ function clickHandler(){
     ++totalQuestions;
   };
 
+  function renderResults(){
+    var elDiv = document.getElementById('results');
+// Display user name
+    var definition = document.createElement('dl');
+    elDiv.appendChild(definition);
 
+
+    var definition2 = document.createElement('dt');
+    definition2.textContent = 'name';
+    definition.appendChild(definition2);
+
+    var definition3 = document.createElement('dd');
+    definition3.textContent = newPlayer.name;
+    definition.appendChild(definition3);
+
+
+// Display difficulty level
+    var dLevel2 = document.createElement('dt');
+    dLevel2.textContent = 'difficulty';
+    definition.appendChild(dLevel2);
+
+    var dLevel3 = document.createElement('dd');
+    dLevel3.textContent = newPlayer.difficulty;
+    definition.appendChild(dLevel3);
+
+// Display speed level
+    var sLevel = document.createElement('dt');
+    sLevel.textContent = 'speed';
+    definition.appendChild(sLevel);
+
+    var sLevel1 = document.createElement('dd');
+    sLevel1.textContent = newPlayer.speed;
+    definition.appendChild(sLevel1);
+
+// Display rightAnswers
+    var rAnswer = document.createElement('dt');
+    rAnswer.textContent = 'ranswers';
+    definition.appendChild(rAnswer);
+
+    var rAnswer1 = document.createElement('dd');
+    rAnswer1.textContent = rightAnswers;
+    definition.appendChild(rAnswer1);
+
+// Display wrongAnswers
+    var wAnswer = document.createElement('dt');
+    wAnswer.textContent = 'wanswers';
+    definition.appendChild(wAnswer);
+
+    var wAnswer1 = document.createElement('dd');
+    wAnswer1.textContent = wrongAnswers;
+    definition.appendChild(wAnswer1);
+
+
+  }
+  // This takes care of the local storage requirement.
+  // This will store what the user put into the form(in the biggining
+  // of the page game) into localStorage.
+  renderResults();
+
+  function saveData() {
+    localStorage.setItem('localData', JSON.stringify(newPlayer) );
+  }
+  saveData();
+};
 
 
 // END OF clickHandler FUNCTION.
-}
 
 
 /***************************
@@ -118,16 +195,13 @@ function PlayerObj(name, difficulty, speed) {
 *****************************
 **NUMBER GENERATION SETTINGS*
 *****************************
-
 REMEMBER: Math.random() generates a random number between 0 - 1.
 code academy explanation: URL: https://goo.gl/5FLRWv
  So, if x = start and y = end, you would do the following:
-
 Add x so the starting point changes from the default 0 to x
 multiply by y-x so the ending point changes from the default 1 to y
 when using Math.floor(), remember to +1 to y-x to
 accomodate the rounding downward to its nearest integer.
-
 Formula:
 Math.floor(Math.random() * ((y-x)+1) + x);
 */
@@ -205,7 +279,7 @@ function playAddRound() {
   globalSecondNumber = b;
   var trueAnswer = a + b;
   globalMathAnswer = trueAnswer;
-  
+
   var msg = 'Welcome to the KidsMathGame! Solve the correct question and you can advance to the next round!';
   var userAnswer = prompt(msg + '\n\nWhat do ' + a + ' + ' + b + ' equal when you add them together?', '0');
   globalUserGuess = userAnswer;
